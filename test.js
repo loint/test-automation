@@ -221,7 +221,7 @@ done = function() {
 // Test case
 require('./task.js');
 
-describe('ORCA TEST', function(done) {
+describe('Sample Test', function(done) {
     this.timeout(999999999);
 
     before(function() {
