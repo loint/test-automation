@@ -48,8 +48,17 @@ ok = function(key, value) {
 }
 
 // You can redefine or add your function to WebDriverJS library
-define = function(client) {
-    // Define client again in here
+define = function(client) {  
+    // TO DO
+    // You can override or and some function into WebDriverJS and call it by $
+    // Use $.set & $.my_function in your Test Case
+    // Sample
+    /* 
+       client.set = client.setValue  // Shorthan and easy to use
+       client.my_function = function () {
+            console.log('Sample');
+       }
+    */    
 }
 
 log = function(text, c) {
