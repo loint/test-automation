@@ -1,9 +1,11 @@
 // CONFIG TEST
 config.project = 'Sample App'
-config.test = 'Sample Test'
+config.test = 'Sample Test' 
 config.url = 'http://localhost:1234/public'
 config.timeout = 99999999
-config.browser = 'firefox' 
+config.browser = 'chrome'
+// ['goto','remove','register','test','click','set','key'] 
+config.step = ['goto','remove','register','test','click','set','key'] 
 
 // START TEST
 test.start = function() {  
@@ -12,6 +14,7 @@ test.start = function() {
     submit('.form-horizontal');   
     set({'#inquiry_question':'Sample Frage', '#inquiry_created_date':'16.04.2014'}); 
     click('body');      
+    key(13);
     set({'#inquiry_agentid':'loi.nguyen'});
     click('.typeahead .dropdown-menu li:option:eq(3)'); 
     click('body');  
@@ -27,3 +30,4 @@ test.start = function() {
             '#inquiry_chanels_1','#inquiry_chanels_2','#inquiry_chanels_3','#submit_inquiry']);        
     done(); 
 };   
+

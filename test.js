@@ -25,18 +25,24 @@ config = {}
 Array.prototype.remove = function(index) {
     this.splice(index, 1)
 }
-
-// Make a test for your expert
-ok = function(key, value) {
-    log('TEST ' + key + ' = ' + value, color.white)
+ 
+// Show the results of test
+result = function(c) { 
+    log('PASS '+task+' / '+register, c); 
+    process.exit();
+} 
+ 
+// Make a test for your expert 
+ok = function(key, value) { 
+    if (show('test')) log('TEST ' + key + ' = ' + value, color.white)
     try
     {
         equal(key, value)
-    } catch (err) {
-        log('ERROR ! NOT EQUAL ', color.red)
-        process.exit()
+    } catch (err) {   
+        if (show('test')) log('ERROR! NOT EQUAL ', color.red)
+        result(color.yellow);  
     } finally {
-        log('OK', color.green)
+        if (show('test')) log('OK', color.green)
     }
 }
 
@@ -49,12 +55,17 @@ log = function(text, c) {
     console.log(c, "\n --> " + text + "\n")
 }
 
+show = function(a) { 
+    step = config.step  
+    return step.indexOf(a)!=-1 ? true : false;
+}
+
 // Go to next task
 next = function() {
-    action('REMOVE', 'Task ' + task, color.yellow)
+    if (show('remove')) action('REMOVE', 'Task ' + task, color.yellow)
     event.removeAllListeners('task_' + task)
     task++
-    action('GO TO', 'Task ' + task, color.cyan)
+    if (show('goto')) action('GO TO', 'Task ' + task, color.cyan)
     event.emit('task_' + task, {})
 }
 
@@ -81,13 +92,13 @@ load = function(a) {
     // Register event to waiting ...  
     if (register > 0) {
         register++;
-        action('REGISTER', 'Task ' + register, color.yellow)
+        if (show('register')) action('REGISTER', 'Task ' + register, color.yellow)
         event.on('task_' + register, function() {
             func(a)
         })
     } else {
         register = 1
-        action('GO TO', 'Task 1', color.cyan)
+        if (show('goto')) action('GO TO', 'Task 1', color.cyan)
         func(a)
     }
 }
@@ -103,9 +114,9 @@ wait = function(time) {
 
 // Finish test and stop excute
 done = function() {
-    load(function() {
-        log('DONE', color.red)
-        process.exit()
+    load(function() {  
+        log('DONE',color.red)
+        result(color.green) 
     })
 }
 
@@ -114,7 +125,7 @@ done = function() {
 click = function(a) {    
     load(function() {
         if (typeof a === 'string') {
-            action('CLICK', a, color.green)
+            if (show('click')) action('CLICK', a, color.green)
             $.click(a, function() {
                 next()
             })
@@ -123,8 +134,8 @@ click = function(a) {
         loop = function() {
             if (a.length === 0)
                 return;
-            else {
-                action('CLICK', a[0], color.green)
+            else { 
+                if (show('click')) action('CLICK', a[0], color.green)
                 $.click(a[0], function() {
                     a.remove(0)
                     a.length === 0 ? next() : loop()
@@ -190,7 +201,7 @@ set = function(a) {
             else {
                 key = a[0].key;
                 value = a[0].value;
-                action('SET', key + ' = ' + value, color.green)
+                if (show('set')) action('SET', key + ' = ' + value, color.green)
                 $.setValue(key, value, function() {
                     a.remove(0)
                     a.length === 0 ? next() : loop()
