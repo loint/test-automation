@@ -41,12 +41,12 @@ debug = function(v) {
 
 // Make a test for your expert 
 ok = function(key, value) {
-    
+
     if (show('expect')) {
         log('TEST ' + key + ' = ' + value, color.white)
     }
-    
-    try 
+
+    try
     {
         equal(key, value)
     } catch (err) {
@@ -72,6 +72,20 @@ show = function(a) {
     return config.step.indexOf(a) != -1 ? true : false;
 }
 
+obj2arr = function(a) {
+    if (!(a instanceof Array)) {
+        b = []
+        Pair = function(key, value) {
+            this.key = key
+            this.value = value
+        }
+        for (item in a) {
+            b.push(new Pair(item, a[item]))
+        }
+        return b
+    } else
+        return a
+}
 // Go to next task
 next = function() {
     if (show('remove')) {
@@ -88,9 +102,10 @@ next = function() {
 // Execute function
 exec = function(func) {
     if (typeof func !== 'undefined') {
-        func(); 
-        return true; 
-    } else return false;
+        func();
+        return true;
+    } else
+        return false;
 }
 
 // You can write an action to console with many color
@@ -182,34 +197,61 @@ submit = function(a) {
     })
 }
 
-// Press a key which not support by WebDriverJS, we bind to selenium using wire protocol
-press = function(value) { 
-    
+select = function(a) {
+    load(function() { 
+        a = obj2arr(a)
+        
+        key = 0
+        value = 0
+        
+        loop = function() {
+            if (a.length === 0)
+            {
+                return;
+            } else {
+                key = a[0].key
+                value = a[0].value
+                if (show('select'))
+                    action('SELECT', key + ' = ' + value, color.green)
+                
+                // Do some things and callback
+                /*
+                    a.remove(0)
+                    a.length === 0 ? next() : loop()
+                */
+            }
+        } 
+        loop()
+    })
+}
+
+press = function(value) {
+
     function checkUnicode(value) {
         return key.hasOwnProperty(value) ? [unicodeChars[value]] : value.split('');
     }
-     
-    load(function() {  
+
+    load(function() {
         if (show('key')) {
             action('PRESS KEY', value, color.green)
         }
-        keys = [] 
+        keys = []
         data = {}
-        if (typeof value === 'string') { 
+        if (typeof value === 'string') {
             keys = checkUnicode(value);
-        } else if (value instanceof Array) { 
+        } else if (value instanceof Array) {
             value.forEach(function(charSet, i) {
                 keys = key.concat(checkUnicode(charSet));
             });
         } else {
             keys = [];
         }
-        data = {'value': keys}; 
-        $.requestHandler.create("/session/:sessionId/keys",data, function() {
-            next(); 
+        data = {'value': keys};
+        $.requestHandler.create("/session/:sessionId/keys", data, function() {
+            next();
         });
     })
-    
+
 }
 
 cookie = function(a) {
@@ -234,18 +276,7 @@ cmp = function(a, value) {
 // set {key1:value1, key2:value2} 
 set = function(a) {
     load(function() {
-
-        if (!(a instanceof Array)) {
-            b = []
-            Pair = function(key, value) {
-                this.key = key
-                this.value = value
-            }
-            for (item in a) {
-                b.push(new Pair(item, a[item]))
-            }
-            a = b
-        }
+        a = obj2arr(a)
 
         key = 0
         value = 0
@@ -273,35 +304,35 @@ set = function(a) {
 // TO DO
 // You can define your function in here with pattern
 /*
-your_function = function(arguments) { 
-load(function() {
+ your_function = function(arguments) { 
+ load(function() {
  Your code in here
-})
-}
-*/
+ })
+ }
+ */
 
 //--------------------------------------------------
 // SCAN TEST CASE AND REGISTER ACTION
 require('./task.js')
 
 $ = driver.remote({desiredCapabilities: {
-    browserName: config.browser
-}})
+        browserName: config.browser
+    }})
 
 test.start = function() {
-    num = 0; 
-    while (true) {  
-        num++;   
-        func = eval('test.$'+num);  
+    num = 0;
+    while (true) {
+        num++;
+        func = eval('test.$' + num);
         if (!exec(func)) {
             done();
             break;
-        }  
+        }
     }
 }
 
 describe(config.project, function(done) {
-    this.timeout(config.timeout) 
+    this.timeout(config.timeout)
     before(function() {
         $.init();
         start()

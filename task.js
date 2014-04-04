@@ -9,14 +9,15 @@ config.url = 'http://192.168.2.55/login'
 config.timeout = 99999999 
 config.browser = 'chrome'    
 // ['goto','remove','register','expect','test','click','set','key'] 
-config.step = ['expect','click','set','key']  
+config.step = ['expect','click','set','key']   
    
 // TEST CASE   
+
 test.$1 = function() {   
     title('Login für');       
     set({'#username':'orca.expert', '#password':'123456@A'}) 
     press(key.Enter)
-} 
+}  
 
 test.$2 = function() {
     set({'#inquiry_question':'Sample Frage', '#inquiry_created_date':'16.04.2014'})
@@ -25,8 +26,8 @@ test.$2 = function() {
     wait(500)
     press(key.Enter)
     set({'#inquiry_last_date':'16.04.2014'})
-    click('body');  
-    wait(500); 
+    click('body')
+    wait(500)
     set({         
         '#inquiry_department':'abcd', 
         '#inquiry_customer_number':'123456' 
