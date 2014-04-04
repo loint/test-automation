@@ -15,12 +15,14 @@ config.step = ['goto','remove','register','test','click','set','key']
 test.start = function() {  
     title('Login action');  
     set({'#username':'sample', '#password':'sample'}); 
-    submit('.form-horizontal');   
+    press(key.Enter);  
     set({'#inquiry_question':'Sample Frage', '#inquiry_created_date':'16.04.2014'}); 
+    wait(1000);
     click('body');      
-    key(13);
+    press(key.enter); 
     set({'#inquiry_agentid':'loi.nguyen'});
     click('.typeahead .dropdown-menu li:option:eq(3)'); 
+    wait(1000);
     click('body');  
     set({  
         '#inquiry_last_date':'16.04.2014', 
