@@ -49,23 +49,6 @@ log = function(text, c) {
     console.log(c, "\n --> " + text + "\n")
 }
 
-// Waiting for ajax or some action need more time.
-wait = function(time) {
-    load(function() {
-        setTimeout(function() {
-            next()
-        }, time)
-    })
-}
-
-// Finish test and stop excute
-done = function() {
-    load(function() {
-        log('DONE', color.red)
-        process.exit()
-    })
-}
-
 // Go to next task
 next = function() {
     action('REMOVE', 'Task ' + task, color.yellow)
@@ -85,6 +68,11 @@ action = function(name, action, color) {
     log(name + ' - ' + action, color)
 }
 
+start = function() {
+    console.log("\n" + '------------------- '+config.project.toUpperCase()+' TEST -------------------' + "\n")
+    log('START',color.red)
+}
+
 // Reuse WebdriverJS library or you want to define an asynchronous function 
 load = function(a) {
     func = function(a) {
@@ -102,6 +90,23 @@ load = function(a) {
         action('GO TO', 'Task 1', color.cyan)
         func(a)
     }
+}
+
+// Waiting for ajax or some action need more time.
+wait = function(time) {
+    load(function() {
+        setTimeout(function() {
+            next()
+        }, time)
+    }) 
+}
+
+// Finish test and stop excute
+done = function() {
+    load(function() {
+        log('DONE', color.red)
+        process.exit()
+    })
 }
 
 // Multi-click is consecutive click sequence on multi-selector 
@@ -136,6 +141,12 @@ submit = function(a) {
         $.submitForm(a, function() {
             next()
         })
+    })
+}
+
+key = function(a) {
+    load(function(){
+        
     })
 }
 
@@ -189,13 +200,19 @@ set = function(a) {
         loop()
     })
 }
+ 
+// TO DO
+// You can define your function in here with pattern
+/*
+    your_function = function(arguments) { 
+        load(function() {
+            // Use arguments in here and call it to make your action
+        }
+    }
+*/
 
-start = function() {
-    console.log("\n" + '------------------- '+config.project.toUpperCase()+' TEST -------------------' + "\n")
-    log('START',color.red)
-}
-
-// TEST CASE
+//--------------------------------------------------
+// SCAN TEST CASE AND REGISTER ACTION
 require('./task.js')
 
 $ = driver.remote({desiredCapabilities: {
