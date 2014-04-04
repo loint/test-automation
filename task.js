@@ -1,3 +1,7 @@
+// Copyright © 2014 Swiss IT Bridge
+// Author: Nguyen Trung Loi (loi.nguyen)
+// Maintain by loi.nguyen and ha.tran
+
 // CONFIG TEST
 config.project = 'Sample App'
 config.test = 'Sample Test' 
