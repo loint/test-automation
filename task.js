@@ -1,3 +1,11 @@
+// CONFIG TEST
+config.project = 'Sample App'
+config.test = 'Sample Test'
+config.url = 'http://localhost:1234/public'
+config.timeout = 99999999
+config.browser = 'chrome'
+
+// START TEST
 test.start = function() {  
     title('Login');         
     set({'#username':'sample', '#password':'12345'}); 
