@@ -1,6 +1,9 @@
+// Copyright © 2014 Swiss IT Bridge
+// Author: Nguyen Trung Loi (loi.nguyen)
+
 driver = require('webdriverjs')
 events = require('events')
-equal = require('assert').equal
+equal = require('assert').equal 
 
 color = {
     white: '\x1b[37m%s\x1b[0m',
@@ -18,10 +21,12 @@ event = new events.EventEmitter()
 test = {}
 config = {}
 
+// Remove first element of an array
 Array.prototype.remove = function(index) {
     this.splice(index, 1)
 }
 
+// Make a test for your expert
 ok = function(key, value) {
     log('TEST ' + key + ' = ' + value, color.white)
     try
@@ -35,6 +40,7 @@ ok = function(key, value) {
     }
 }
 
+// You can redefine or add your function to WebDriverJS library
 define = function(client) {
     // Define client again in here
 }
@@ -43,10 +49,7 @@ log = function(text, c) {
     console.log(c, "\n --> " + text + "\n")
 }
 
-pass = function() {
-    console.log("\n -------------------\n")
-}
-
+// Waiting for ajax or some action need more time.
 wait = function(time) {
     load(function() {
         setTimeout(function() {
@@ -55,6 +58,7 @@ wait = function(time) {
     })
 }
 
+// Finish test and stop excute
 done = function() {
     load(function() {
         log('DONE', color.red)
@@ -62,6 +66,7 @@ done = function() {
     })
 }
 
+// Go to next task
 next = function() {
     action('REMOVE', 'Task ' + task, color.yellow)
     event.removeAllListeners('task_' + task)
@@ -70,15 +75,37 @@ next = function() {
     event.emit('task_' + task, {})
 }
 
+// Execute function
 exec = function(func) {
     typeof func !== 'undefined'?func():''
 }
 
+// You can write an action to console with many color
 action = function(name, action, color) {
     log(name + ' - ' + action, color)
 }
 
-// Multi click on ['selector1', 'selector2']
+// Reuse WebdriverJS library or you want to define an asynchronous function 
+load = function(a) {
+    func = function(a) {
+        a()
+    }    
+    // Register event to waiting ...  
+    if (register > 0) {
+        register++;
+        action('REGISTER', 'Task ' + register, color.yellow)
+        event.on('task_' + register, function() {
+            func(a)
+        })
+    } else {
+        register = 1
+        action('GO TO', 'Task 1', color.cyan)
+        func(a)
+    }
+}
+
+// Multi-click is consecutive click sequence on multi-selector 
+// click(['selector1', 'selector2', 'selectorN'])
 click = function(a) {    
     load(function() {
         if (typeof a === 'string') {
@@ -99,30 +126,11 @@ click = function(a) {
                 })
             }
         }
-
-        loop()
-        
+        loop()        
     })
 }
 
-load = function(a) {
-    func = function(a) {
-        a()
-    }    
-    // Register event to waiting ...  
-    if (register > 0) {
-        register++;
-        action('REGISTER', 'Task ' + register, color.yellow)
-        event.on('task_' + register, function() {
-            func(a)
-        })
-    } else {
-        register = 1
-        action('GO TO', 'Task 1', color.cyan)
-        func(a)
-    }
-}
-
+// Submit a form
 submit = function(a) {
     load(function() {
         $.submitForm(a, function() {
@@ -131,6 +139,7 @@ submit = function(a) {
     })
 }
 
+// Check the title match your expect
 title = function(a) {
     load(function() {
         $.getTitle(function(err, title) {
@@ -144,7 +153,8 @@ cmp = function(a,value) {
 
 }
 
-// Multi set {key1:value1, key2:value2} 
+// Multi-set is consecutive set sequence on multi-selector 
+// set {key1:value1, key2:value2} 
 set = function(a) {
     load(function() {
         if (!(a instanceof Array)) {
@@ -185,7 +195,7 @@ start = function() {
     log('START',color.red)
 }
 
-// Test case
+// TEST CASE
 require('./task.js')
 
 $ = driver.remote({desiredCapabilities: {
@@ -194,7 +204,6 @@ $ = driver.remote({desiredCapabilities: {
 
 describe(config.project, function(done) {
     this.timeout(config.timeout)
-
         before(function() {
             $.init();
             start()
@@ -205,7 +214,7 @@ describe(config.project, function(done) {
             define($)
             test.start()
         })
-    })
+    }) 
     after(function(done) {
         $.end(done)
     })
