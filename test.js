@@ -71,7 +71,7 @@ next = function() {
 
 // Execute function
 exec = function(func) {
-    typeof func !== 'undefined'?func():''
+    typeof func !== 'undefined'? func() : ''
 }
 
 // You can write an action to console with many color
@@ -181,20 +181,16 @@ set = function(a) {
     load(function() {
         if (!(a instanceof Array)) {
             b = [];
-
             Pair = function(key, value) {
                 this.key = key
                 this.value = value
             }
-
             for (item in a) {
                 b.push(new Pair(item, a[item]))
             }
             a = b;
         }
-
         key = 0, value = 0;
-
         loop = function() {
             if (a.length === 0)
                 return;
@@ -224,8 +220,8 @@ set = function(a) {
 
 //--------------------------------------------------
 // SCAN TEST CASE AND REGISTER ACTION
-require('./task.js')
 
+require('./task.js')
 $ = driver.remote({desiredCapabilities: {
     browserName: config.browser
 }})
