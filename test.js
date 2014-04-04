@@ -182,6 +182,7 @@ submit = function(a) {
     })
 }
 
+// Press a key which not support by WebDriverJS, we bind to selenium using wire protocol
 press = function(value) { 
     
     function checkUnicode(value) {
@@ -192,7 +193,7 @@ press = function(value) {
         if (show('key')) {
             action('PRESS KEY', value, color.green)
         }
-        keys = []
+        keys = [] 
         data = {}
         if (typeof value === 'string') { 
             keys = checkUnicode(value);
