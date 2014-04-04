@@ -6,7 +6,7 @@ driver = require('webdriverjs')
 events = require('events')
 equal = require('assert').equal
 key = require('webdriverjs/lib/utils/unicodeChars');
- 
+
 color = {
     white: '\x1b[37m%s\x1b[0m',
     green: '\x1b[32m%s\x1b[0m',
@@ -41,17 +41,20 @@ debug = function(v) {
 
 // Make a test for your expert 
 ok = function(key, value) {
-    if (show('test'))
+    
+    if (show('expect')) {
         log('TEST ' + key + ' = ' + value, color.white)
-    try
+    }
+    
+    try 
     {
         equal(key, value)
     } catch (err) {
-        if (show('test'))
+        if (show('expect'))
             log('ERROR! NOT EQUAL ', color.red)
         result(color.yellow);
     } finally {
-        if (show('test'))
+        if (show('expect'))
             log('OK', color.green)
     }
 }
@@ -84,7 +87,10 @@ next = function() {
 
 // Execute function
 exec = function(func) {
-    typeof func !== 'undefined' ? func() : ''
+    if (typeof func !== 'undefined') {
+        func(); 
+        return true; 
+    } else return false;
 }
 
 // You can write an action to console with many color
@@ -278,11 +284,23 @@ load(function() {
 require('./task.js')
 
 $ = driver.remote({desiredCapabilities: {
-        browserName: config.browser
-    }})
+    browserName: config.browser
+}})
+
+test.start = function() {
+    num = 0; 
+    while (true) {  
+        num++;   
+        func = eval('test.$'+num);  
+        if (!exec(func)) {
+            done();
+            break;
+        }  
+    }
+}
 
 describe(config.project, function(done) {
-    this.timeout(config.timeout)
+    this.timeout(config.timeout) 
     before(function() {
         $.init();
         start()
