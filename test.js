@@ -1,5 +1,6 @@
 // Copyright © 2014 Swiss IT Bridge
 // Author: Nguyen Trung Loi (loi.nguyen)
+// Maintain by loi.nguyen and ha.tran
 
 driver = require('webdriverjs')
 events = require('events')
