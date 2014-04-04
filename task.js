@@ -12,6 +12,7 @@ test.start = function() {
     submit('.form-horizontal');   
     set({'#question':'Sample Frage', '#date':'16.04.2014'}); 
     click('body');        
+    wait(500);
     set({'#idname':'sample name'});
     click('body');   
     set({  

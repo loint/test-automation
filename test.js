@@ -2,7 +2,7 @@ driver = require('webdriverjs')
 events = require('events')
 equal = require('assert').equal
 
-var color = {
+color = {
     white: '\x1b[37m%s\x1b[0m',
     green: '\x1b[32m%s\x1b[0m',
     red: '\x1b[31m%s\x1b[0m',
@@ -71,8 +71,7 @@ next = function() {
 }
 
 exec = function(func) {
-    if (typeof func !== 'undefined')
-        func()
+    typeof func !== 'undefined'?func():''
 }
 
 action = function(name, action, color) {
@@ -80,8 +79,7 @@ action = function(name, action, color) {
 }
 
 // Multi click on ['selector1', 'selector2']
-click = function(a) {
-
+click = function(a) {    
     load(function() {
         if (typeof a === 'string') {
             action('CLICK', a, color.green)
@@ -90,8 +88,7 @@ click = function(a) {
             })
             return
         }
-
-        var loop = function() {
+        loop = function() {
             if (a.length === 0)
                 return;
             else {
@@ -104,15 +101,14 @@ click = function(a) {
         }
 
         loop()
+        
     })
 }
 
 load = function(a) {
-
-    var func = function(a) {
+    func = function(a) {
         a()
-    }
-
+    }    
     // Register event to waiting ...  
     if (register > 0) {
         register++;
@@ -125,7 +121,6 @@ load = function(a) {
         action('GO TO', 'Task 1', color.cyan)
         func(a)
     }
-
 }
 
 submit = function(a) {
@@ -166,9 +161,9 @@ set = function(a) {
             a = b;
         }
 
-        var key = 0, value = 0;
+        key = 0, value = 0;
 
-        var loop = function() {
+        loop = function() {
             if (a.length === 0)
                 return;
             else {
@@ -204,7 +199,6 @@ describe(config.project, function(done) {
             $.init();
             start()
     })
-
     it(config.title, function(done) {
         $.url(config.url, function() {
             $.done = done;
@@ -212,7 +206,6 @@ describe(config.project, function(done) {
             test.start()
         })
     })
-
     after(function(done) {
         $.end(done)
     })
