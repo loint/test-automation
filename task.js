@@ -7,8 +7,8 @@ config.browser = 'firefox'
 
 // START TEST
 test.start = function() {  
-    title('Login für');  
-    set({'#username':'orca.expert', '#password':'123456@A'}); 
+    title('Login action');  
+    set({'#username':'sample', '#password':'sample'}); 
     submit('.form-horizontal');   
     set({'#inquiry_question':'Sample Frage', '#inquiry_created_date':'16.04.2014'}); 
     click('body');      
@@ -17,7 +17,7 @@ test.start = function() {
     click('body');  
     set({  
         '#inquiry_last_date':'16.04.2014', 
-        '#inquiry_department':'abcd', 
+        '#inquiry_department':'abcd',  
         '#inquiry_customer_number':'123456'  
     });  
     click([ '#inquiry_ada','#inquiry_ada option:nth-child(2)','body',
