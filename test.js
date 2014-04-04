@@ -6,7 +6,7 @@ driver = require('webdriverjs')
 events = require('events')
 equal = require('assert').equal
 key = require('webdriverjs/lib/utils/unicodeChars');
-
+ 
 color = {
     white: '\x1b[37m%s\x1b[0m',
     green: '\x1b[32m%s\x1b[0m',
