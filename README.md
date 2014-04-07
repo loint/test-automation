@@ -45,11 +45,11 @@ Test Automation for Nodejs
 	 
   * select (selector, order) - select option order which selec tag has selector 
 	
-  * wait (seconds) - wait for ajax or action which spent a long time.	
+  * wait (seconds) - wait for ajax or action which need a more time.	
  
-  * load (function) - load a asynchronous function as synchronous function, when done the asyn, you call next function to go to the next task. 
+  * load (function) - load a asynchronous function as synchronous function, when the asynchronous task is finished, you call next function to go to the next task. 
   
-  * next () - call to excute next task 
+  * next () - call to excute next task  
    
   
 ## Sample Test
