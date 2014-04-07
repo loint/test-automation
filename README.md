@@ -19,11 +19,14 @@ Test Automation for Nodejs
   
   
 ## Running the Tests
+
 	Open cmd window and run selenium before you test
+	
 	  $ java -jar your folder/selenium-server-standalone-2.39.0.jar
 	
 	Run mocha to do test
+	
       $ mocha
-
+ 
 ## License
   MIT license. See the LICENSE file for details.
