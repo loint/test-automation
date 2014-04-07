@@ -20,20 +20,21 @@ Test Automation for Nodejs
 ## Documentation
 
   ### Tutorial 
+  Some function
   
-  ###API Reference
+  ### API Reference
 
-	1. set ('selector', 'value') 
+	set ('selector', 'value') 
 	
-	2. set ({
+	set ({
 		selector1: 'value1',
 		selector2: 'value2',
 		selector3: 'value3'
 	})	
 	
-	3. click('selector')
+	click('selector')
 	
-	4. click([ 'selector1', 'selector2', 'selector3' ])
+	click([ 'selector1', 'selector2', 'selector3' ])
 	
     press
 	
