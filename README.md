@@ -16,6 +16,24 @@ Test Automation for Nodejs
   https://selenium.googlecode.com/files/selenium-server-standalone-2.39.0.jar
 	  
   Put chromedriver.exe into system32 folder and selenium server in your folder.
+
+## Documentation
+
+  1. Tutorial 
+  
+  2.  
+  
+  3. API Reference
+  
+    # set
+	# click
+    # press
+    # submit
+	# select
+	# wait	
+  
+  4. Write your function
+   
   
 ## Sample Test
   
