@@ -19,10 +19,11 @@ Test Automation for Nodejs
 
 ## Documentation
 
-  ### Tutorial 
+  Tutorial 
+  
   Some function
   
-  ### API Reference
+  API Reference
 
 	set ('selector', 'value') 
 	
@@ -44,7 +45,7 @@ Test Automation for Nodejs
 	
 	wait	
   
-  ### Write your function
+  Write your function
    
   
 ## Sample Test
