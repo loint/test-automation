@@ -7,9 +7,12 @@ Test Automation for Nodejs
 
       $ npm install mocha chai grunt webdriverjs phantomjs
 	  
-  Sample Test
+## Sample Test
   
   
-  Running the Tests
+## Running the Tests
 
       $ mocha
+
+## LICENSE
+  MIT license. See the LICENSE file for details.
