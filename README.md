@@ -25,29 +25,29 @@ Test Automation for Nodejs
   
 ## API Reference
 
-  * set (selector, value) 
+  * set (selector, value)     
 	
   * set ({
 	selector1: value1,
 	selector2: value2,
 	selector3: value3
-  })	
+    })	
 	
-  * click(selector)
+  * click (selector)
 	
-  * click([ selector1, selector2, selector3 ])
+  * click ([ selector1, selector2, selector3 ])
 	
-  * press(key.keyName)
+  * press(key.keyName) 
 
     keyName = [ NULL, Cancel, Help, Back space, Tab, Clear, Return, Enter, Shift, Control, Alt, Pause, Escape, Space, Pageup, Pagedown, End, Home, Left arrow, Up arrow, Right arrow, Down arrow, Insert, Delete, Semicolon, Equals, Numpad 0, Numpad 1, Numpad 2, Numpad 3, Numpad 4, Numpad 5, Numpad 6, Numpad 7, Numpad 8, Numpad 9, Multiply, Add, Separator, Subtract, Decimal, Divide, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, Command, Meta ]
 
-  * submit 
+  * submit (selector)
 	 
-  * select
+  * select (selector, order) 
 	
-  * wait	
-  
-  * Write your function
+  * wait (seconds)	
+ 
+  * load (function) 
    
   
 ## Sample Test

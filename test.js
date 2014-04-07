@@ -144,7 +144,7 @@ wait = function(time) {
     load(function() {
         setTimeout(function() {
             next()
-        }, time)
+        }, time*1000)
     })
 }
 
