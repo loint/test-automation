@@ -6,3 +6,10 @@ Test Automation for Nodejs
   Install with the Node.JS package manager [npm](http://npmjs.org/):
 
       $ npm install mocha chai grunt webdriverjs phantomjs
+	  
+  Sample Test
+  
+  
+  Running the Tests
+
+      $ mocha
