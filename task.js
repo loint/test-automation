@@ -2,17 +2,17 @@
 // Author: Nguyen Trung Loi (loi.nguyen)
 // Maintain by loi.nguyen and ha.tran
 
-// CONFIG TEST
-config.project = 'Orca'
-config.test = 'Add an inquiry'
-config.url = 'http://192.168.2.55/login'
-config.timeout = 99999999 
-config.browser = 'chrome'    
-// ['goto','remove','register','expect','test','click','set','key'] 
-config.step = ['expect','click','set','key']   
-   
-// TEST CASE   
+// TEST CONFIGURATION
+config = {
+    project: 'Orca', 
+    test: 'Add an inquiry', 
+    url: 'http://192.168.2.55/login',
+    timeout : 99999999,
+    browser : 'chrome', 
+    step : ['expect','click','set','key']
+}
 
+// TEST CASE   
 test.$1 = function() {   
     title('Login für');       
     set({'#username':'orca.expert', '#password':'123456@A'}) 

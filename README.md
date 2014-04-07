@@ -17,11 +17,21 @@ Test Automation for Nodejs
 	  
   Put chromedriver.exe into system32 folder and selenium server in your folder.
 
+## Configuration
+
+    * project : Project Name
+    * test : Test Name
+    * url : Project's url which you want to make test
+    * timeout : The time you want to stop execute test
+    * browser : The browser which you want to test
+    ['chrome', 'firefox', 'ie']
+    * step : Options to show instruction execute
+    ['goto','remove','register','expect','test','click','set','key']
+
+
 ## Documentation
 
   Tutorial 
-  
-  Some function
   
 ## API Reference
 
@@ -54,14 +64,15 @@ Test Automation for Nodejs
   
 ## Sample Test
   
-	// CONFIG TEST
-	config.project = 'Orca'
-	config.test = 'Add an inquiry'
-	config.url = 'http://192.168.2.55/login'
-	config.timeout = 99999999 
-	config.browser = 'chrome'    
-	// ['goto','remove','register','expect','test','click','set','key'] 
-	config.step = ['expect','click','set','key']   
+	// TEST CONFIGURATION
+        config = {
+            project: 'Orca',  
+            test: 'Add an inquiry', 
+            url: 'http://192.168.2.55/login',
+            timeout : 99999999,
+            browser : 'chrome', 
+            step : ['expect','click','set','key'] 
+        } 
    
 	// TEST CASE   
 	test.$1 = function() {   
