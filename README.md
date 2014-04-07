@@ -37,13 +37,9 @@ Test Automation for Nodejs
 
   * set (selector, value) - set a value for selector
 
-  * set ({                
-	selector1: value1,
-	selector2: value2,
-	selector3: value3
-    })	- set multi value for multi selector in the sequence
+  * set ({selector1: value1, selector2: value2} - set multi value for multi selector in the sequence
 	
-  * click (selector)     - mouse click to a selector
+  * click (selector) - mouse click to a selector 
 	
   * click ([ selector1, selector2, selector3 ]) - mouse click to multi selector in the sequence
 	
@@ -59,7 +55,7 @@ Test Automation for Nodejs
  
   * load (function) - load a asynchronous function as synchronous function, when the asynchronous task is finished, you call next function to go to the next task. 
   
-  * next () - call to excute next task  
+  * next () - call to excute next task   
    
   
 ## Sample Test
