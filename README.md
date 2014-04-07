@@ -25,12 +25,12 @@ Test Automation for Nodejs
   
   3. API Reference
   
-    # set
-	# click
-    # press
-    # submit
-	# select
-	# wait	
+    set
+	click
+    press
+    submit
+	select
+	wait	
   
   4. Write your function
    
