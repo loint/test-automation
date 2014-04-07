@@ -7,10 +7,12 @@ Test Automation for Nodejs
 
       $ npm install mocha chai grunt webdriverjs phantomjs
 	  
-  Download latest chrome driver version
+  Download latest chrome driver version at :
+  
   http://chromedriver.storage.googleapis.com/index.html
 	  
-  Download selenium server standardlone 
+  Download selenium server standardlone at :
+  
   https://selenium.googlecode.com/files/selenium-server-standalone-2.39.0.jar
 	  
   Put chromedriver.exe into system32 folder and selenium server in your folder.
@@ -20,11 +22,11 @@ Test Automation for Nodejs
   
 ## Running the Tests
 
-	Open cmd window and run selenium before you test
+  Open cmd window and run selenium before you test
 	
 	  $ java -jar your folder/selenium-server-standalone-2.39.0.jar
-	
-	Run mocha to do test
+  
+  Run mocha to do test
 	
       $ mocha
  
