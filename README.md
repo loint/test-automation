@@ -23,13 +23,26 @@ Test Automation for Nodejs
   
   2.  
   
-  3. API Reference
-  
-    set
-	click
+  ###API Reference
+
+	set ('selector', 'value') 
+	
+	set ({
+		selector1: 'value1',
+		selector2: 'value2',
+		selector3: 'value3'
+	})	
+	
+	click('selector')
+	
+	click([ 'selector1', 'selector2', 'selector3' ])
+	
     press
+	
     submit
+	
 	select
+	
 	wait	
   
   4. Write your function
