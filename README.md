@@ -37,11 +37,11 @@ Test Automation for Nodejs
 
   * set (selector, value) - set a value for selector
 
-  * set ({                - set multi value for multi selector in the sequence
+  * set ({                
 	selector1: value1,
 	selector2: value2,
 	selector3: value3
-    })	
+    })	- set multi value for multi selector in the sequence
 	
   * click (selector)     - mouse click to a selector
 	
