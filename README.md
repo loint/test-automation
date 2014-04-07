@@ -25,25 +25,25 @@ Test Automation for Nodejs
   
   API Reference
 
-	set ('selector', 'value') 
+  set ('selector', 'value') 
 	
-	set ({
-		selector1: 'value1',
-		selector2: 'value2',
-		selector3: 'value3'
-	})	
+  set ({
+	selector1: 'value1',
+	selector2: 'value2',
+	selector3: 'value3'
+  })	
 	
-	click('selector')
+  click('selector')
 	
-	click([ 'selector1', 'selector2', 'selector3' ])
+  click([ 'selector1', 'selector2', 'selector3' ])
 	
-    press
+  press
 	
-    submit
+  submit
+	 
+  select
 	
-	select
-	
-	wait	
+  wait	
   
   Write your function
    
