@@ -197,12 +197,22 @@ submit = function(a) {
     })
 }
 
-select = function(a) {
+select = function(a, o) {
     load(function() { 
+        
+        if (typeof a === 'string') {
+            if (show('click'))
+                action('CLICK', a, color.green)
+            $.click(a, function() {
+                next()
+            })
+            return
+        }
+        
         a = obj2arr(a)
         
         key = 0
-        value = 0
+        value = 0 
         
         loop = function() {
             if (a.length === 0)
@@ -213,6 +223,11 @@ select = function(a) {
                 value = a[0].value
                 if (show('select'))
                     action('SELECT', key + ' = ' + value, color.green)
+                
+                $.click(a[0], function() {
+                    a.remove(0)
+                    a.length === 0 ? next() : loop()
+                })
                 
                 // Do some things and callback
                 /*

@@ -1,6 +1,8 @@
 Test Automation for Nodejs
 ===============
-
+## Overview
+    
+      
 ## Installation
 
   Install with the Node.JS package manager [npm](http://npmjs.org/):
@@ -17,16 +19,16 @@ Test Automation for Nodejs
 	  
   Put chromedriver.exe into system32 folder and selenium server in your folder.
 
-## Configuration
+## Configuration  
 
-    * project : Project Name
-    * test : Test Name
-    * url : Project's url which you want to make test
-    * timeout : The time you want to stop execute test
-    * browser : The browser which you want to test
-    ['chrome', 'firefox', 'ie']
-    * step : Options to show instruction execute
-    ['goto','remove','register','expect','test','click','set','key']
+  * project : Project Name
+  * test : Test Name
+  * url : Project's url which you want to make test
+  * timeout : The time you want to stop execute test
+  * browser : The browser which you want to test
+  ['chrome', 'firefox', 'ie']
+  * step : Options to show execute instructions
+  ['goto','remove','register','expect','test','click','set','key']
 
 
 ## Documentation
@@ -61,14 +63,14 @@ Test Automation for Nodejs
 ## Sample Test
   
 	// TEST CONFIGURATION
-        config = {
-            project: 'Orca',  
-            test: 'Add an inquiry', 
-            url: 'http://192.168.2.55/login',
-            timeout : 99999999,
-            browser : 'chrome', 
-            step : ['expect','click','set','key'] 
-        } 
+    config = {
+        project: 'Orca',  
+        test: 'Add an inquiry', 
+        url: 'http://192.168.2.55/login',
+        timeout : 99999999,
+        browser : 'chrome', 
+        step : ['expect','click','set','key'] 
+    }   
    
 	// TEST CASE   
 	test.$1 = function() {   
@@ -98,4 +100,5 @@ Test Automation for Nodejs
       $ mocha
  
 ## License
+
   MIT license. See the LICENSE file for details.
