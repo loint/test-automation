@@ -20,7 +20,10 @@ test.$1 = function() {
 }  
 
 test.$2 = function() {
-    set({'#inquiry_question':'Sample Frage', '#inquiry_created_date':'16.04.2014'})
+    set({
+        '#inquiry_question':'Sample Frage', 
+        '#inquiry_created_date':'16.04.2014'
+    })
     click('body')
     set({'#inquiry_agentid':'loi'}) 
     wait(500)

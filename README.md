@@ -62,7 +62,7 @@ Test Automation for Nodejs
   
 ## Sample Test
   
-	// TEST CONFIGURATION
+    // TEST CONFIGURATION
     config = {
         project: 'Orca',  
         test: 'Add an inquiry', 
@@ -72,22 +72,21 @@ Test Automation for Nodejs
         step : ['expect','click','set','key'] 
     }   
    
-	// TEST CASE   
-	test.$1 = function() {   
-		title('Login für');       
-		set({'#username':'orca.expert', '#password':'123456@A'}) 
-		press(key.Enter)
-	}  
+    // TEST CASE   
+    test.$1 = function() {   
+        title('Login für');       
+        set({'#username':'orca.expert', '#password':'123456@A'}) 
+        press(key.Enter)
+    }  
 
-	test.$2 = function() {
-		set({'#inquiry_question':'Sample Frage', '#inquiry_created_date':'16.04.2014'})
-		click('body')
-		set({'#inquiry_agentid':'loi'}) 
-		wait(500)
-		press(key.Enter)
-		set({'#inquiry_last_date':'16.04.2014'})
-	}  
-  
+    test.$2 = function() {
+        set({'#inquiry_question':'Sample Frage', '#inquiry_created_date':'16.04.2014'})
+	click('body')
+	set({'#inquiry_agentid':'loi'}) 
+	wait(500)
+	press(key.Enter)
+	set({'#inquiry_last_date':'16.04.2014'})
+    }  
   
 ## Running the Tests
 
