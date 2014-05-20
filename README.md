@@ -7,8 +7,9 @@ Test Automation for Nodejs
 
   Install with the Node.JS package manager [npm](http://npmjs.org/):
 
-      $ npm install mocha chai webdriverjs phantomjs
-	  
+      $ npm install -g mocha chai webdriverjs phantomjs
+      $ npm install chai webdriverjs phantomjs
+
   Download latest chrome driver version at :
   
   http://chromedriver.storage.googleapis.com/index.html
@@ -33,7 +34,7 @@ Test Automation for Nodejs
 
 ## Documentation
 
-  Tutorial 
+  Tutorial (It's will be updated in the next version)
   
 ## API Reference
 
@@ -95,8 +96,8 @@ Test Automation for Nodejs
 	
 	  $ java -jar your folder/selenium-server-standalone-2.39.0.jar
   
-  Run mocha to do test
-	
+  Change current directory in test.js. Run mocha to do test
+
       $ mocha
  
 ## License
