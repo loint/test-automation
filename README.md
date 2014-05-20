@@ -7,7 +7,7 @@ Test Automation for Nodejs
 
   Install with the Node.JS package manager [npm](http://npmjs.org/):
 
-      $ npm install -g mocha chai webdriverjs phantomjs
+      $ npm install -g mocha
       $ npm install chai webdriverjs phantomjs
 
   Download latest chrome driver version at :
