@@ -92,11 +92,11 @@ Test Automation for Nodejs
   
 ## Running the Tests
 
-  Open cmd window and run selenium before you test
+  Open cmd window and run selenium before testing, you should keep it run while we're doing the test.
 	
 	  $ java -jar your folder/selenium-server-standalone-2.39.0.jar
   
-  Change current directory in test.js. Run mocha to do test
+  Open others cmd windows and change current directory in test.js. Run mocha to do test
 
       $ mocha
  
