@@ -1,7 +1,8 @@
 Test Automation for Nodejs
 ===============
 ## Overview        
-	Test Automation is a small library which helps you to write test case more faster and easier. The author hope it would be helpful for you !
+	
+ Test Automation is a small library which helps you to write test case more faster and easier. The author hope it would be helpful for you !
 	
 ## Installation	
  	
