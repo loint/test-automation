@@ -1,10 +1,10 @@
 Test Automation for Nodejs
 ===============
-## Overview
-    
-      
-## Installation
-
+## Overview        
+	Test Automation is a small library which helps you to write test case more faster and easier. The author hope it would be helpful for you !
+	
+## Installation	
+ 	
   Install with the Node.JS package manager [npm](http://npmjs.org/):
 
       $ npm install -g mocha
