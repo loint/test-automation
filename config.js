@@ -14,10 +14,8 @@ config = {
     flow :  {
         sample: {
             auth : {    
-                model:['account'],   
-                action: [   
-                    
-                ],
+                model: ['account'],    
+                action: '',    
                 resellers: {                
                     get_all: { 
                         
